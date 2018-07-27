@@ -1,0 +1,27 @@
+{
+  "name": "chatworld",
+  "version": "1.0.0",
+  "description": "This chat apps",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1",
+    "nodemon": "^1.18.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sidsinha16/ChatWorld.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sidsinha16/ChatWorld/issues"
+  },
+  "homepage": "https://github.com/sidsinha16/ChatWorld#readme"
+}
