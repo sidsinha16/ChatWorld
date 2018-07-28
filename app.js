@@ -1,14 +1,17 @@
 var express =require('express');
-var bodyParser = require('body-parser')
-
-
-
+var mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 
 //Express connection
 var app = express();
 
-//for post request
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+//Connection withn MongoDB
+mongoose.connect('mongodb://spyder:sid123@ds153841.mlab.com:53841/momgochat',{ useNewUrlParser: true })
+  .then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
+
+//import models
+import { login } from './models';
 
 //link the view
 app.use("/",express.static("views"))
@@ -18,16 +21,10 @@ app.use("/public/js",express.static("public/js"))
 //linking html file
 app.engine('html', require('ejs').renderFile);
 
-//GET 
-app.get('/login',(req,res)=>{
-	res.render('login.html');
-});
 
-//POST
-app.post('/login',urlencodedParser,(req,res)=>{
-	console.log(req.body);
-	res.render('success.html');
-});
+//controller
+var loginController = require('./controller/loginController');
+loginController(app);
 
 
 
